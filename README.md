@@ -31,7 +31,7 @@ import { registerLocale, subscribe } from 'locale-lite';
 import en from './locales/en.js'; // import locale files from elsewhere in your application
 import pl from './locales/pl.js';
 
-registerLocale('en', en); // make sure to register the locales with i18n-lite
+registerLocale('en', en); // make sure to register the locales
 registerLocale('pl', pl);
 
 subscribe((newLocale) => {
