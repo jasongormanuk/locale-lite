@@ -1,0 +1,45 @@
+{
+  "name": "locale-lite",
+  "version": "0.0.0",
+  "description": "A lightweight JS internationalization library",
+  "type": "module",
+  "main": "./src/locale-lite.js",
+  "types": "./types/locale-lite.d.ts",
+  "exports": {
+    ".": {
+      "import": "./src/locale-lite.js",
+      "types": "./types/locale-lite.d.ts"
+    },
+    "./react": {
+      "import": "./src/react-adapter.js",
+      "types": "./types/react-adaptor.d.ts"
+    }
+  },
+  "files": [
+    "src",
+    "types"
+  ],
+  "sideEffects": false,
+  "homepage": "https://github.com/jasongormanuk/locale-lite#readme",
+  "bugs": {
+    "url": "https://github.com/jasongormanuk/locale-lite/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jasongormanuk/locale-lite.git"
+  },
+  "keywords": ["i18n", "esm", "localization", "react", "tree-shakable"],
+  "author": "Jason Gorman",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^18.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
