@@ -7,16 +7,16 @@ import {
   useEffect,
   Fragment
 } from "react";
-import { getCurrentLocale, setCurrentLocale, subscribe, t as i18nT } from "i18n-lite";
+import { getCurrentLocale, setCurrentLocale, subscribe, t as localeT } from "locale-lite";
 
-const I18nContext = createContext({
+const LocaleContext = createContext({
   setLanguage: () => {},
 });
 
 /**
- * I18nProvider that reacts to language changes from the core.
+ * LocaleProvider that reacts to language changes from the core.
  */
-export function I18nProvider({ defaultLang, children }) {
+export function LocaleProvider({ defaultLang, children }) {
   // Set once on mount
   useEffect(() => {
     setCurrentLocale(defaultLang);
@@ -29,9 +29,9 @@ export function I18nProvider({ defaultLang, children }) {
   const value = useMemo(() => ({ setLanguage }), [setLanguage]);
 
   return (
-    <I18nContext.Provider value={value}>
+    <LocaleContext.Provider value={value}>
       {children}
-    </I18nContext.Provider>
+    </LocaleContext.Provider>
   );
 }
 
@@ -39,7 +39,7 @@ export function I18nProvider({ defaultLang, children }) {
  * Hook to access translated strings and current language.
  */
 export function useTranslation() {
-  const { setLanguage } = useContext(I18nContext);
+  const { setLanguage } = useContext(LocaleContext);
 
   const lang = useSyncExternalStore(
     subscribe,
@@ -48,7 +48,7 @@ export function useTranslation() {
   );
 
   const t = useCallback((key, { components = {}, ...vars } = {}) => {
-    const result = i18nT(key, { ...vars, components });
+    const result = localeT(key, { ...vars, components });
 
     if (Array.isArray(result)) {
       return (

@@ -12,11 +12,11 @@ export interface UseTranslationResult {
   setLanguage: (lang: string) => void;
 }
 
-export interface I18nProviderProps {
+export interface LocaleProviderProps {
   defaultLang: string;
   children: ReactNode;
 }
 
-export const I18nProvider: FunctionComponent<I18nProviderProps>;
+export const LocaleProvider: FunctionComponent<LocaleProviderProps>;
 
 export function useTranslation(): UseTranslationResult;
