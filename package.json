@@ -11,7 +11,7 @@
       "types": "./types/locale-lite.d.ts"
     },
     "./react": {
-      "import": "./src/react-adapter.js",
+      "import": "./src/react-adaptor.js",
       "types": "./types/react-adaptor.d.ts"
     }
   },
