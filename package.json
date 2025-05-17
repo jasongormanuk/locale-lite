@@ -1,6 +1,6 @@
 {
   "name": "locale-lite",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A lightweight JS internationalization library",
   "type": "module",
   "main": "./src/locale-lite.js",
@@ -28,7 +28,13 @@
     "type": "git",
     "url": "git+https://github.com/jasongormanuk/locale-lite.git"
   },
-  "keywords": ["i18n", "esm", "localization", "react", "tree-shakable"],
+  "keywords": [
+    "i18n",
+    "esm",
+    "localization",
+    "react",
+    "tree-shakable"
+  ],
   "author": "Jason Gorman",
   "license": "MIT",
   "peerDependencies": {
