@@ -6,8 +6,8 @@ import {
   useSyncExternalStore,
   useEffect,
   Fragment
-} from "react";
-import { getCurrentLocale, setCurrentLocale, subscribe, t as localeT } from "locale-lite";
+} from 'react';
+import * as localeLite from 'locale-lite';
 
 const LocaleContext = createContext({
   setLanguage: () => {},
@@ -19,11 +19,11 @@ const LocaleContext = createContext({
 export function LocaleProvider({ defaultLang, children }) {
   // Set once on mount
   useEffect(() => {
-    setCurrentLocale(defaultLang);
+    localeLite.setCurrentLocale(defaultLang);
   }, [defaultLang]);
 
   const setLanguage = useCallback((lang) => {
-    setCurrentLocale(lang);
+    localeLite.setCurrentLocale(lang);
   }, []);
 
   const value = useMemo(() => ({ setLanguage }), [setLanguage]);
@@ -42,13 +42,13 @@ export function useTranslation() {
   const { setLanguage } = useContext(LocaleContext);
 
   const lang = useSyncExternalStore(
-    subscribe,
-    getCurrentLocale,
-    getCurrentLocale
+    localeLite.subscribe,
+    localeLite.getCurrentLocale,
+    localeLite.getCurrentLocale
   );
 
   const t = useCallback((key, { components = {}, ...vars } = {}) => {
-    const result = localeT(key, { ...vars, components });
+    const result = localeLite.t(key, { ...vars, components });
 
     if (Array.isArray(result)) {
       return (

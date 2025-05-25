@@ -6,7 +6,7 @@ export interface LocaleData {
   [key: string]: TranslationValue | LocaleData;
 }
 
-export function subscribe(listener: () => void): () => void;
+export function subscribe(listener: (currentLocale: string) => void): () => void;
 
 export function registerLocale(locale: string, data: LocaleData): void;
 

@@ -13,6 +13,13 @@
     "./react": {
       "import": "./src/react-adaptor.js",
       "types": "./types/react-adaptor.d.ts"
+    },
+    "./svelte": {
+      "import": "./src/svelte-adaptor.js"
+    },
+    "./solid": {
+      "import": "./src/solid-adapter.js",
+      "types": "./types/solid-adapter.d.ts"
     }
   },
   "files": [
@@ -38,10 +45,18 @@
   "author": "Jason Gorman",
   "license": "MIT",
   "peerDependencies": {
-    "react": ">=18.0.0"
+    "react": ">=18.0.0",
+    "svelte": ">=3.0.0",
+    "solid-js": ">=1.6.0"
   },
   "peerDependenciesMeta": {
     "react": {
+      "optional": true
+    },
+    "svelte": {
+      "optional": true
+    },
+    "solid-js": {
       "optional": true
     }
   },
